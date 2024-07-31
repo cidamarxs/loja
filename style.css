@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'fonteCabecalhos';
+src:url('fonts/frankfrt.ttf');
+font-weight: bold;
+font-style: normal;
+}
+
+@font-face {
+    font-family: 'fonteTitulos';
+src= url('fonts/Edward Scissorhands.ttf');
+font-weight: bold;
+font-style: normal;
+}
+
+@font-face {
+    font-family: 'fonteParagrafos';
+src= url('fonts/bauhs93.ttf');
+font-weight: normal;
+font-style: normal;
+}
+
+body {
+    background-image: url('images/fundo.jpeg');
+    background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+    margin: 0;
+    font-family: 'fonteParagrafos';
+    font-size: 30px; 
+    text-align: center;
+}
+
+header {
+    background-color: #1e1e1e;
+    color:gold;
+    font-family: 'fonteCabecalhos';
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
+h2 {
+        font-family: 'fonteTitulos';
+    font-size: 35px;
+    text-align: center;
+}
+
+p {
+    font-family: 'fonteParagrafos';
+    font-size: 30px; 
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text {
+    flex: 1;
+}
+
+.logo img {
+    max-width: 100%;
+    weight: auto;
+}
