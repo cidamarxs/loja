@@ -1,29 +1,27 @@
 @font-face {
     font-family: 'fonteCabecalhos';
-src:url('fonts/frankfrt.ttf');
-font-weight: bold;
-font-style: normal;
+    src: url('fonts/frankfrt.ttf');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'fonteTitulos';
-src= url('fonts/Edward Scissorhands.ttf');
-font-weight: bold;
-font-style: normal;
+    src: url('fonts/frankfrt.ttf');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'fonteParagrafos';
-src= url('fonts/bauhs93.ttf');
-font-weight: normal;
-font-style: normal;
+    src: url('fonts/bauhs93.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-    background-image: url('images/fundo.jpeg');
-    background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
+    background-color: mistyrose;
+    color: #1e1e1e;
     margin: 0;
     font-family: 'fonteParagrafos';
     font-size: 30px; 
@@ -32,38 +30,100 @@ background-position: center;
 
 header {
     background-color: #1e1e1e;
-    color:gold;
+    color: gold;
     font-family: 'fonteCabecalhos';
     font-size: 40px;
     text-align: center;
     padding: 10px;
+    align-items: center;
+    }
+
+.logo img {
+    max-width: 20%;
+    height: auto;
+    }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto;
 }
 
+.text {
+    flex: 1;
+    text-align: right;
+    }
+
 h2 {
-        font-family: 'fonteTitulos';
+    font-family: 'fonteTitulos';
     font-size: 35px;
     text-align: center;
+    color: #7D0F2A; /* vermelho vinho */
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: gold;
+    font-family: 'fonteParagrafos';
+    font-size: 20px;
+    text-align: left;
+    padding: 10px;
 }
 
 p {
     font-family: 'fonteParagrafos';
     font-size: 30px; 
     text-align: center;
+    color: #1e1e1e; /* cor grafite */
 }
 
-.container {
+.menu-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    }
+
+.menu-vertical {
+    flex: 0 0 200px;
+    background-color: mistyrose;
+    padding: 20px;
 }
 
-.text {
+.menu-vertical {
+    display: flex;
+    flex-direction:column;
+    flex: 0 0 200px; /* Define a largura fixa do menu */
+    background-color: mistyrose;
+    padding: 20px;
+}
+
+.menu-vertical ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-vertical ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-vertical ul li a {
+    text-decoration: none;
+    color: #7D0F2A;
+    padding: 10px;
+    display: block; /* Faz os links ocuparem toda a largura do item da lista */
+}
+
+.menu-vertical ul li a:hover {
+    background-color: blac;
+}
+
+.menu-vertical ul li a:visited {
+    color: #7D0F2A;
+}
+
+.main-content {
     flex: 1;
-}
-
-.logo img {
-    max-width: 100%;
-    weight: auto;
+    padding: 20px;
 }
