@@ -27,10 +27,32 @@
                 </ul>
         </aside>
         <main class="main-content">
-                   <p>Espaço em construção</p>
+            >
+        <div class="container-card">
+            <div class="text-card">
+                <h2>Carrinho de Compras</h2>
+            </div>
+            <img src="images/carrinho.png" alt="A imagem mostra um carrinho de compras com duas sacolas dentro. A sacola da frente é rosa e a de trás é amarela. O carrinho tem uma alça vermelha e duas rodas azuis. Ao redor do carrinho, há pequenos ícones coloridos, como estrelas e pontos, em várias cores.">
+        </div>
+                   <p>Confira os ítens em seu carrinho para prosseguir com a compra.</p>
+                   <div class="container mt-5">
+                    <div class="row" id="product-list">
+
+                   </div>
+                   </div>
+                   <div class="container-ckt">
+                    <button class="btn btn-success" onclick="redirectToPayment()">Avançar para pagamento</button>
+                </div>
         </main>
     </div>
     
+    <script>
+        function redirectToPayment() {
+            const cart = getCart(); // Obter dados do carrinho
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href='/pagamentos.html';
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>  
     <footer>
