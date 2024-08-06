@@ -16,83 +16,107 @@
             <img src="images/logotipo.png" alt="A imagem mostra o logotipo do Mercado Livre, que consiste em duas mãos se apertando em um gesto de cumprimento. A mão à esquerda é branca e a mão à direita é amarela. Elas estão dentro de um círculo com fundo amarelo e borda azul. Abaixo das mãos, está escrito 'mercado livre' em letras minúsculas e na cor azul. O fundo da imagem é branco, destacando o logotipo no centro.">
         </div>
     </header>
-        <div class="menu-container">
-         <aside class="menu-vertical";>
-                                <h2>Menu de Navegação</h2>
-                    <ul>
-                                <li><a href="index.html">Início</a></li>
-                    <li><a href="card.html">Carrinho</a></li>
-                    <li><a href="pagamentos.html">Pagamento</a></li>
-                </ul>
+    <div class="menu-container">
+        <aside class="menu-vertical">
+            <h2>Menu de Navegação</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="card.html">Carrinho</a></li>
+                <li><a href="pagamentos.html">Pagamento</a></li>
+            </ul>
         </aside>
         <main class="main-content">
-         <div class="container-pg">
-            <h2>Forma de Pagamento</h2>
-                           <p style="text-align: left;">Escolha a forma de pagamento para prosseguir com sua compra.</p>
-                    <form id="payment-form">
-            <div class="form-group">
-                <label for="price">Preço do Produto (R$):</label>
-                <input type="number" id="price" name="price" required step="0.01">
-            </div>
-            <br>
-            <div class="form-group">
-                <label>
-                    <input type="radio" name="payment-method" value="card" required>
-                    Cartão de Crédito
-                </label>
-                <br>
-                <label>
-                    <input type="radio" name="payment-method" value="pix">
-                    PIX
-                </label>
-                <br>
-                <label>
-                    <input type="radio" name="payment-method" value="boleto">
-                    Boleto Bancário
-                </label>
-            </div>
-            <br>
-            <button type="submit">Confirmar Pagamento</button>
-        </form>
+            <div class="container-pg">
+                <h2>Forma de Pagamento</h2>
+                <p style="text-align: left;">Escolha a forma de pagamento para finalizar com sua compra.</p>
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label for="price">Preço do Produto (R$):</label>
+                        <input type="number" id="price" name="price" required step="0.01">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>
+                            <input type="radio" name="payment-method" value="card" required>
+                            Cartão de Crédito
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="payment-method" value="pix">
+                            PIX
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="payment-method" value="boleto">
+                            Boleto Bancário
+                        </label>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Finalizar</button>
+                </form>
 
-        <div id="status" class="status"></div>
+                <div id="status" class="status"></div>
+                <div id="alert-box" class="alert alert-success" style="display: none;">
+                    <p>Compra concluída com sucesso!</p>
+                    <button id="ok-button" class="btn btn-success">OK</button>
+                </div>
+            </div>
+        </main>
     </div>
+    
     <script>
-        document.getElementById('payment-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            var paymentMethod = document.querySelector('input[name="payment-method"]:checked');
-            var priceInput = document.getElementById('price');
-            var price = parseFloat(priceInput.value);
-            var statusDiv = document.getElementById('status');
-            
-            if (paymentMethod && !isNaN(price)) {
-                var isApproved = false;
-
-                switch (paymentMethod.value) {
-                    case 'card':
-                        isApproved = price <= 500;
-                        break;
-                    case 'pix':
-                    case 'boleto':
-                        isApproved = price > 0;
-                        break;
-                }
-
-                if (isApproved) {
-                    statusDiv.textContent = 'Compra aprovada!';
-                    statusDiv.className = 'status approved';
+        window.onload = function() {
+            // Recupera o carrinho do sessionStorage
+            const cart = JSON.parse(sessionStorage.getItem('cart'));
+            console.log(cart);
+    
+            // Processa o pagamento quando o formulário é enviado
+            document.getElementById('payment-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                var paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+                var priceInput = document.getElementById('price');
+                var price = parseFloat(priceInput.value);
+                var statusDiv = document.getElementById('status');
+                var alertBox = document.getElementById('alert-box');
+                
+                if (paymentMethod && !isNaN(price)) {
+                    var isApproved = false;
+    
+                    switch (paymentMethod.value) {
+                        case 'card':
+                            isApproved = price <= 1000; // Exemplo de lógica de aprovação
+                            break;
+                        case 'pix':
+                        case 'boleto':
+                            isApproved = price > 0; // Exemplo de lógica de aprovação
+                            break;
+                    }
+    
+                    // Processamento com status de aprovado ou recusado
+                    if (isApproved) {
+                        statusDiv.textContent = 'Compra aprovada!';
+                        statusDiv.className = 'status approved';
+                        
+                        // Mostrar o alert de sucesso
+                        alertBox.style.display = 'block';
+                    } else {
+                        statusDiv.textContent = 'Compra recusada! Verifique o valor e o método de pagamento.';
+                        statusDiv.className = 'status declined';
+                    }
                 } else {
-                    statusDiv.textContent = 'Compra recusada! Verifique o valor e o método de pagamento.';
-                    statusDiv.className = 'status declined';
+                    statusDiv.textContent = 'Por favor, preencha todos os campos corretamente.';
+                    statusDiv.className = 'status';
                 }
-            } else {
-                statusDiv.textContent = 'Por favor, preencha todos os campos corretamente.';
-                statusDiv.className = 'status';
-            }
-        });
+            });
+    
+            // Redireciona para página de agradecimento quando o botão OK for clicado
+            document.getElementById('ok-button').addEventListener('click', function() {
+                window.location.href = 'agradecimento.html';
+            });
+        };
     </script>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <footer>
