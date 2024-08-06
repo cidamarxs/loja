@@ -19,6 +19,21 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'fonteTextos';
+    src: url('fonts/trebucit.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fonteHeads';
+    src: url('fonts/LOKICOLA.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
     background-color: mistyrose;
     color: #1e1e1e;
@@ -235,7 +250,7 @@ height: auto;
 
             /* Estilizando agradecimentos */
 .container-ag {
-    padding: 2rem
+    padding: 2rem;
     background: linear-gradient(45deg, #FFC0CB, #FF69B4);
     color: black;
         }
@@ -250,3 +265,41 @@ height: auto;
         border-radius: 10px;
         cursor: pointer;
     }
+
+    .btn-tks {
+        margin-top: 1rem; ;
+        background-color: #E83E8C;/* rosa vibrante que lembra uma rosa recém desabrochada */ 
+        color: black;
+        border: none;
+        padding: 0.75rem     1.5rem;
+        font-size: medium;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .container-obg {
+        padding: 2rem;
+        background: linear-gradient(45deg, #FFC0CB, #FF69B4);
+        color: black;
+            }
+         
+            .p-obg {
+                text-align: left;
+                font-family:  'fonteTextos';
+                            }
+
+                            .h2-obg {
+                                text-align: center;
+                            font-family: 'fonteHeads';
+                            };
+
+            .btn-home {
+            margin-top: 1rem; ;
+            background-color: #E83E8C;/* rosa vibrante que lembra uma rosa recém desabrochada */ 
+            color: black;
+            border: none;
+            padding: 0.75rem     1.5rem;
+            font-size: medium;
+            border-radius: 10px;
+            cursor: pointer;
+        }
