@@ -38,6 +38,10 @@ header {
     align-items: center;
     }
 
+.text {
+    margin-right: 15px;
+}
+
 .logo img {
     max-width: 20%;
     height: auto;
@@ -180,4 +184,69 @@ text-align: center;
                 border-radius: 10px;
                 cursor: pointer;
                             }
+.alert-box {
+display: none;
+margin-top: 20px;
+}
 
+.alert-box.show {
+display:block
+}
+
+.alert-box button {
+    margin-top:  20px;
+    }
+
+                            /* Estilizando o carrinho e botão*/
+                            .container-card {
+                                display: flex;
+                                align-items: center;
+                                padding: 10px;
+                            }
+
+                            .text-card {
+margin-right:  15px;
+                            }                                
+                            
+.text h2 {
+    margin: 0px;
+    }
+
+    .container-card img {
+width: 80px;
+height: auto;
+    }
+
+    .container-ckt {
+        margin-top: 20px;
+        text-align: center;
+        background-color: mistyrose;
+            }
+
+            .container-ckt .bnt {
+                background-color: #2E8B57;
+                color: mistyrose;
+                border: none;
+                padding: 0.75rem     1.5rem;
+                font-size: medium;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            /* Estilizando agradecimentos */
+.container-ag {
+    padding: 2rem
+    background: linear-gradient(45deg, #FFC0CB, #FF69B4);
+    color: black;
+        }
+
+    .btn-home {
+        margin-top: 1rem; ;
+        background-color: #2E8B57;
+        color: mistyrose;
+        border: none;
+        padding: 0.75rem     1.5rem;
+        font-size: medium;
+        border-radius: 10px;
+        cursor: pointer;
+    }
